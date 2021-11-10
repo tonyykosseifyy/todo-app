@@ -27,8 +27,10 @@ export default Header;
 
 
 const HeaderWrapper = styled.header`
-  height: 300px;
-
+  height: 400px;
+  @media (max-width: 1300px) {
+    height: 300px;
+  }
   & > img {
     width: 100% ;
     height: 100%;
