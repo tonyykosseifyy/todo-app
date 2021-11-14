@@ -4,7 +4,7 @@ import bgDesktopLight from "./Assets/bg-desktop-light.jpg";
 import bgDesktopDark from "./Assets/bg-desktop-dark.jpg";
 import bgMobileLight from "./Assets/bg-mobile-light.jpg";
 import bgMobileDark from "./Assets/bg-mobile-dark.jpg";
-import { AppWrapper , AppBackgroundImage } from "./components";
+import { AppWrapper , AppBackgroundImage , AppContainer } from "./components";
 
 function App() {
   const [ darkTheme , setDarkTheme ] = useState(false);
@@ -21,7 +21,9 @@ function App() {
         src={mobile ? darkTheme ? bgMobileDark:bgMobileLight : darkTheme ? bgDesktopDark:bgDesktopLight} 
         alt="design image" 
       />
-      <button onClick={() => setDarkTheme(!darkTheme)}>CLick me</button>
+      <AppContainer>
+        <h1>TODO APP</h1>
+      </AppContainer>
     </AppWrapper>
   );
 };
