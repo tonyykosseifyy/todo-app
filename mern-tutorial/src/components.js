@@ -44,3 +44,28 @@ export const Title = styled.h1`
   letter-spacing: 10px ;
   font-weight: bold ;
 `
+
+
+export const Todo = styled.div`
+  transition: .35s ease-in-out;
+  background-color: ${props => props.darkTheme ? "var(--Very-Dark-Desaturated-Blue)" : "white"};
+  border-radius: 5px;
+  padding: 12px 9px;
+  display: flex ;
+  align-items: center ;
+  margin-top: ${({input}) => input ? "20px" : "0"};
+`
+
+export const Input = styled.input`
+  flex: 1 ;
+  outline: none ;
+  border: none ;
+  min-width: 0 ;
+  font-size: 1.3rem;
+
+  &::placeholder {
+    color: var(--Dark-Grayish-Blue) ;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+`
