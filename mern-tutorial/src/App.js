@@ -8,6 +8,7 @@ import { AppWrapper , AppBackgroundImage , AppContainer , Title , Flex} from "./
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import IconButton from '@mui/material/IconButton';
+import { dark } from "@mui/material/styles/createPalette";
 
 
 function App() {
@@ -20,15 +21,23 @@ function App() {
   console.log(mobile);
     
   return (
-    <AppWrapper>
+    <AppWrapper darkTheme={darkTheme}>
       <AppBackgroundImage 
-        src={mobile ? darkTheme ? bgMobileDark:bgMobileLight : darkTheme ? bgDesktopDark:bgDesktopLight} 
+        darkTheme={darkTheme}
+        index={1}
+        src={mobile ? bgMobileLight : bgDesktopLight} 
+        alt="design image" 
+      />
+      <AppBackgroundImage 
+        index={2}
+        darkTheme={darkTheme}
+        src={mobile ? bgMobileDark : bgDesktopDark } 
         alt="design image" 
       />
       <AppContainer>
         <Flex>
           <Title>TODO</Title>
-          <IconButton onClick={() => setDarkTheme(!darkTheme)}>
+          <IconButton sx={{color: "white", fontSize:"2rem"}} onClick={() => setDarkTheme(!darkTheme)}>
             { darkTheme ? <LightModeIcon /> : <DarkModeIcon /> }
           </IconButton>
         </Flex>
