@@ -4,7 +4,11 @@ import bgDesktopLight from "./Assets/bg-desktop-light.jpg";
 import bgDesktopDark from "./Assets/bg-desktop-dark.jpg";
 import bgMobileLight from "./Assets/bg-mobile-light.jpg";
 import bgMobileDark from "./Assets/bg-mobile-dark.jpg";
-import { AppWrapper , AppBackgroundImage , AppContainer } from "./components";
+import { AppWrapper , AppBackgroundImage , AppContainer , Title , Flex} from "./components";
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import IconButton from '@mui/material/IconButton';
+
 
 function App() {
   const [ darkTheme , setDarkTheme ] = useState(false);
@@ -22,7 +26,12 @@ function App() {
         alt="design image" 
       />
       <AppContainer>
-        <h1>TODO APP</h1>
+        <Flex>
+          <Title>TODO</Title>
+          <IconButton onClick={() => setDarkTheme(!darkTheme)}>
+            { darkTheme ? <LightModeIcon /> : <DarkModeIcon /> }
+          </IconButton>
+        </Flex>
       </AppContainer>
     </AppWrapper>
   );

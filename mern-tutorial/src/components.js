@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 
-
-
 export const AppWrapper = styled.main`
   min-height: 100vh ;
   position: relative;
@@ -16,16 +14,25 @@ export const AppBackgroundImage = styled.img`
   top:0;
   left: 0;
   right: 0;
-  /*max-height: 450px;
-  
-  @media (max-width: 1300px) {
-    max-height: 330px;
-  }*/
 `
 
 export const AppContainer = styled.section`
   position: relative;
   color: white;
-  padding-top: 6vw;
+  padding-top: 50px ;
+  width: 80vw ;
+  max-width: 500px;
+  margin: 0 auto ;
+  height: 600px;
+`
 
+export const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+export const Title = styled.h1`
+  font-size: 2rem ;
+  letter-spacing: 10px ;
+  font-weight: bold ;
 `
