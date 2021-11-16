@@ -57,15 +57,52 @@ export const Todo = styled.div`
 `
 
 export const Input = styled.input`
+  color: ${props => props.darkTheme ? "white" : "black"};
+  background: transparent ;
   flex: 1 ;
   outline: none ;
   border: none ;
   min-width: 0 ;
   font-size: 1.3rem;
+  caret-color: var(--Bright-blue) ;
+  caret-shape:block 
+
 
   &::placeholder {
     color: var(--Dark-Grayish-Blue) ;
     font-size: 0.9rem;
     font-weight: bold;
+  }
+`
+
+export const Check = styled.div`
+  width: 1.8em ;
+  height: 1.8em ;
+  border-radius: 50% ;
+  margin-right: 10px;
+  transition: .3s ease-out;
+  background: ${({ checked }) => checked ? "linear-gradient(to bottom right,hsl(192, 100%, 67%), hsl(280, 87%, 65%))" : "var(--Dark-Grayish-Blue)" };
+  cursor: pointer;
+  position: relative;
+  display: grid;
+  place-items: center;
+  &:hover {
+    background: linear-gradient(to bottom right,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  }
+  & svg {
+    width: .6em ;
+    height: .6em ;
+  }
+  & > div {
+    background-color: white;
+    width: 1.64em ;
+    height: 1.64em ;
+    border-radius: 50%;
+    transition: .3s ease-out ;
+    opacity: ${({ checked }) => checked ? "0" : "1" };
+    position: absolute ;
+    top: 50% ;
+    left: 50% ;
+    transform: translate(-50% , -50%);
   }
 `

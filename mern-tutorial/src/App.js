@@ -4,17 +4,17 @@ import bgDesktopLight from "./Assets/bg-desktop-light.jpg";
 import bgDesktopDark from "./Assets/bg-desktop-dark.jpg";
 import bgMobileLight from "./Assets/bg-mobile-light.jpg";
 import bgMobileDark from "./Assets/bg-mobile-dark.jpg";
-import { AppWrapper , AppBackgroundImage , AppContainer , Title , Flex , Todo , Input} from "./components";
+import { AppWrapper , AppBackgroundImage , AppContainer , Title , Flex , Todo , Input,Check} from "./components";
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import IconButton from '@mui/material/IconButton';
-
+import CheckIcon from '@mui/icons-material/Check';
 
 function App() {
   const [ darkTheme , setDarkTheme ] = useState(false);
   const [ mobile , setMobile ] = useState(false);
   const [ input , setInput ] = useState(""); 
-
+  const [ checked , setChecked ] = useState(false);
   useEffect(() => {
     window.addEventListener("resize" , () => setMobile(window.innerWidth < 800))
   }, [])
@@ -42,8 +42,12 @@ function App() {
           </IconButton>
         </Flex>
 
-        <Todo input> 
-          <Input placeholder="Create a new todo..." value={input} onChange={(e) => setInput(e.target.value)} />
+        <Todo input darkTheme={darkTheme} > 
+          <Check onClick={() => setChecked(!checked)} checked={checked}>
+            <div style={{backgroundColor: darkTheme ? "transparent" : "" }} />
+            {!checked ? null : <CheckIcon />}
+          </Check>
+          <Input placeholder="Create a new todo..." value={input} onChange={(e) => setInput(e.target.value)} darkTheme={darkTheme} />
         </Todo>
       </AppContainer>
     </AppWrapper>
